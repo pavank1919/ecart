@@ -33,6 +33,10 @@ header {
   display: flex;
   align-items: center;
   padding: 0.5rem;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 header a {
@@ -134,4 +138,18 @@ footer {
 }
 .button.primary {
   background-color: #f0c040;
+}
+
+/** */
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  padding: 1rem;
+  border-bottom: 0.1rem #c0c0c0 solid;
+}
+
+.filter div {
+  flex: 1;
 }
