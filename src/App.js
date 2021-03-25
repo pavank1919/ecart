@@ -9,17 +9,27 @@ class App extends Component {
     super();
     this.state = {
       products: data.products,
-      cartItems: [],
+      cartItems: localStorage.getItem("cartItems")
+        ? JSON.parse(localStorage.getItem("cartItems"))
+        : [],
       size: "",
       sort: "",
     };
   }
+
+  createOrders = (orders) => {
+    alert(orders);
+  };
 
   removeItemFromCart = (product) => {
     const cartItems = this.state.cartItems.slice();
     this.setState({
       cartItems: cartItems.filter((x) => x._id !== product._id),
     });
+    localStorage.setItem(
+      "cartItems",
+      JSON.stringify(cartItems.filter((x) => x._id !== product._id))
+    );
   };
 
   addToCart = (product) => {
@@ -35,14 +45,19 @@ class App extends Component {
       cartItems.push({ ...product, count: 1 });
     }
     this.setState({ cartItems });
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   };
   filterProducts = (event) => {
-    this.setState({
-      size: event.target.value,
-      products: data.products.filter(
-        (product) => product.availableSizes.indexOf(event.target.value) >= 0
-      ),
-    });
+    if (event.target.value === "") {
+      this.setState({ size: event.target.value, products: data.products });
+    } else {
+      this.setState({
+        size: event.target.value,
+        products: data.products.filter(
+          (product) => product.availableSizes.indexOf(event.target.value) >= 0
+        ),
+      });
+    }
   };
 
   sortProducts = (event) => {
@@ -92,6 +107,7 @@ class App extends Component {
               <Cart
                 cartItems={this.state.cartItems}
                 removeItemFromCart={this.removeItemFromCart}
+                createOrder={this.createOrders}
               />
             </div>
           </div>
