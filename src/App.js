@@ -37,12 +37,16 @@ class App extends Component {
     this.setState({ cartItems });
   };
   filterProducts = (event) => {
-    this.setState({
-      size: event.target.value,
-      products: data.products.filter(
-        (product) => product.availableSizes.indexOf(event.target.value) >= 0
-      ),
-    });
+    if (event.target.value === "") {
+      this.setState({ size: event.target.value, products: data.products });
+    } else {
+      this.setState({
+        size: event.target.value,
+        products: data.products.filter(
+          (product) => product.availableSizes.indexOf(event.target.value) >= 0
+        ),
+      });
+    }
   };
 
   sortProducts = (event) => {

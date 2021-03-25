@@ -4,7 +4,6 @@ import formatCurrency from "../Util";
 export default class Cart extends Component {
   render() {
     const { cartItems } = this.props;
-    console.log(cartItems);
     return (
       <div>
         {cartItems && cartItems.length === 0 ? (
