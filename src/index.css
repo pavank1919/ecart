@@ -37,6 +37,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 header a {
@@ -217,4 +218,33 @@ form {
 
 input {
   padding: 1rem;
+}
+
+.product-details {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+  max-height: 96vh;
+}
+
+.product-details img {
+  max-height: 100vh;
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.product-details-decoration {
+  flex: 1 1;
+  margin: 1rem;
+}
+
+.close-modal {
+  position: absolute;
+  right: 1rem;
+  top: 2.5rem;
+  z-index: 1;
+}
+
+.product-img {
+  padding-right: 10%;
 }
