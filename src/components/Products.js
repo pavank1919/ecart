@@ -123,8 +123,7 @@ class Products extends Component {
 // )(Products);
 
 const mapStateToProps = (state) => ({
-  helloWorld: state.products.items,
-  userData: state.userData,
+  products: state.products.items,
 });
 
 const mapDispatchToProps = (dispatch) =>
