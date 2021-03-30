@@ -31,6 +31,7 @@ const Product = mongoose.model(
 );
 
 app.get("/api/v1/products", async (req, res) => {
+  res.header(("Access-Control-Allow-Origin", "http://localhost:5000"));
   const products = await Product.find({});
   res.send(products);
 });
