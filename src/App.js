@@ -99,10 +99,7 @@ class App extends Component {
                   sortProducts={this.sortProducts}
                   filterProducts={this.filterProducts}
                 />
-                <Products
-                  products={this.state.products}
-                  addToCart={this.addToCart}
-                />
+                <Products addToCart={this.addToCart} />
               </div>
               <div className="sidebar">
                 <Cart
